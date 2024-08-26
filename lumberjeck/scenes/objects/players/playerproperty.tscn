@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cco71aby4ohnc"]
+
+[ext_resource type="Script" path="res://scripts/player_property.gd" id="1_nn1jq"]
+[ext_resource type="Script" path="res://scripts/player_animation.gd" id="2_dfe2q"]
+
+[node name="PlayerProperty" type="CharacterBody2D" node_paths=PackedStringArray("spr")]
+script = ExtResource("1_nn1jq")
+spr = NodePath("sprit")
+
+[node name="sprit" type="Sprite2D" parent="." node_paths=PackedStringArray("anim")]
+position = Vector2(0, -1)
+script = ExtResource("2_dfe2q")
+anim = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
