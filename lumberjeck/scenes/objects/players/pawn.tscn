@@ -1,7 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmhaorwptaat4"]
+[gd_scene load_steps=8 format=3 uid="uid://bmhaorwptaat4"]
 
 [ext_resource type="PackedScene" uid="uid://cco71aby4ohnc" path="res://scenes/objects/players/playerproperty.tscn" id="1_2bm0w"]
 [ext_resource type="Texture2D" uid="uid://bxjxihsoff1de" path="res://assets/Tiny Swords (Update 010)/Factions/Knights/Troops/Pawn/Purple/Pawn_Purple.png" id="2_hwm1w"]
+
+[sub_resource type="Animation" id="Animation_5ffi5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprit:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_t4jjf"]
 resource_name = "idle"
@@ -18,21 +33,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
-}
-
-[sub_resource type="Animation" id="Animation_5ffi5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprit:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_vwh41"]
@@ -59,8 +59,11 @@ _data = {
 "walk": SubResource("Animation_vwh41")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_317fg"]
+size = Vector2(47, 37)
+
 [node name="pawn" instance=ExtResource("1_2bm0w")]
-speed = 64
+speed = 120
 
 [node name="sprit" parent="." index="0"]
 texture = ExtResource("2_hwm1w")
@@ -71,3 +74,11 @@ vframes = 6
 libraries = {
 "": SubResource("AnimationLibrary_a7cf5")
 }
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0.5, 8.5)
+shape = SubResource("RectangleShape2D_317fg")
+
+[node name="Camera2D" parent="." index="3"]
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0

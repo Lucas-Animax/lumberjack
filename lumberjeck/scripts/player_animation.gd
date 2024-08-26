@@ -4,7 +4,7 @@ extends Sprite2D
 
 func animation_player(dic:Vector2):
 	change_side(dic)
-
+	animation_move(dic)
 
 	pass
 
@@ -16,7 +16,11 @@ func change_side(dic):
 
 
 
-func animation_move():
+func animation_move(dic):
+	if dic != Vector2.ZERO:
+		anim.play("walk")
+	else:
+		anim.play("idle")
 
 
 

@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/player_animation.gd" id="2_dfe2q"]
 
 [node name="PlayerProperty" type="CharacterBody2D" node_paths=PackedStringArray("spr")]
+collision_mask = 15
 script = ExtResource("1_nn1jq")
 spr = NodePath("sprit")
 
@@ -15,3 +16,5 @@ anim = NodePath("../AnimationPlayer")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
