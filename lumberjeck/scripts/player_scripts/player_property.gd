@@ -8,12 +8,17 @@ class_name PlayerProperty
 @export var speed:int
 @export var strength:float
 
+var in_attack:bool = false
+
+
 const INTERPOLATION = 0.5
 
 func _physics_process(_delta: float) -> void:
-	moving()
+	if check_inputs():
+		moving()
+		move_and_slide()
 	spr.animation_player(velocity)
-	move_and_slide()
+	inputs()
 
 	pass
 
@@ -30,4 +35,15 @@ func moving():
 		velocity.y = move_toward(velocity.y,0,speed)
 
 
+	pass
+
+func check_inputs() -> bool:
+	if in_attack:
+		return false
+	else:
+		return true
+
+func inputs():
+	if Input.is_action_just_pressed("attack") and not in_attack:
+		in_attack = true
 	pass
