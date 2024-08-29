@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://boomfhrimac6r"]
 
-[ext_resource type="Script" path="res://scripts/destroyable_scripts/tree.gd" id="1_12hbt"]
+[ext_resource type="Script" path="res://scripts/enemys/destructible_objects/tree.gd" id="1_12hbt"]
 [ext_resource type="Texture2D" uid="uid://b63rvyrs1kmjv" path="res://assets/Tiny Swords (Update 010)/Resources/Trees/Tree.png" id="1_k1pm1"]
 
 [sub_resource type="Animation" id="Animation_qqfxi"]

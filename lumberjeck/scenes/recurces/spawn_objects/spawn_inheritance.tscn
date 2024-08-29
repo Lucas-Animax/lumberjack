@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdunf3ou14xhu"]
+
+[ext_resource type="Script" path="res://scripts/resource/spawn.gd" id="1_7cnn2"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_7cnn2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
