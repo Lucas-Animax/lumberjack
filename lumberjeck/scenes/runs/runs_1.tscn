@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://b0inhx68j5ah5"]
+[gd_scene load_steps=6 format=4 uid="uid://b0inhx68j5ah5"]
 
 [ext_resource type="TileSet" uid="uid://s4n3lnwx458s" path="res://themes/TileMap_themes/Walter_TileMap.tres" id="1_svv1l"]
 [ext_resource type="TileSet" uid="uid://vi4c8p2ohl8g" path="res://themes/TileMap_themes/Foams_TileMap.tres" id="2_52jex"]
 [ext_resource type="TileSet" uid="uid://ces8cmenrkh3u" path="res://themes/TileMap_themes/Flat_TileMap.tres" id="3_yp6q0"]
 [ext_resource type="PackedScene" uid="uid://bmhaorwptaat4" path="res://scenes/objects/players/pawn.tscn" id="4_gwtim"]
+[ext_resource type="PackedScene" uid="uid://boomfhrimac6r" path="res://scenes/objects/destroyable/tree.tscn" id="5_j74o5"]
 
 [node name="runs" type="Node2D"]
 
@@ -24,3 +25,14 @@ tile_set = ExtResource("3_yp6q0")
 [node name="characters" type="Node2D" parent="."]
 
 [node name="pawn" parent="characters" instance=ExtResource("4_gwtim")]
+show_behind_parent = false
+z_as_relative = false
+position = Vector2(98, -26)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(11, 19)
+
+[node name="Tree" parent="Node2D" instance=ExtResource("5_j74o5")]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(103, -176)
