@@ -3,6 +3,21 @@
 [ext_resource type="PackedScene" uid="uid://cdunf3ou14xhu" path="res://scenes/recurces/spawn_objects/spawn_inheritance.tscn" id="1_byjb7"]
 [ext_resource type="Texture2D" uid="uid://btdoiow2qyu85" path="res://assets/Tiny Swords (Update 010)/Resources/Resources/W_Spawn.png" id="2_yg8p1"]
 
+[sub_resource type="Animation" id="Animation_q70cp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_n3ijt"]
 resource_name = "spawn"
 length = 0.65
@@ -19,21 +34,6 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 5, 4, 6]
 }
 
-[sub_resource type="Animation" id="Animation_q70cp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_744si"]
 _data = {
 "RESET": SubResource("Animation_q70cp"),
@@ -41,7 +41,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i2u7n"]
-radius = 48.0937
+radius = 26.1725
 
 [node name="Area2D" instance=ExtResource("1_byjb7")]
 
@@ -56,5 +56,5 @@ libraries = {
 autoplay = "spawn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
-position = Vector2(-2, 19)
+position = Vector2(-1, 21)
 shape = SubResource("CircleShape2D_i2u7n")

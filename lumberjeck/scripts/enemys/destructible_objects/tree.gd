@@ -41,8 +41,8 @@ func spawn_tree():
 	for spawn_amount in spawn_number:
 		var tree_init:SpawnProperties = tree_pack.instantiate()
 		tree_init.global_position = global_position + Vector2(
-			randi_range(-32,32),
-			randi_range(32,-32)
+			randi_range(-30,30),
+			randi_range(30,-30)
 		)
 		get_tree().root.call_deferred("add_child",tree_init)
 

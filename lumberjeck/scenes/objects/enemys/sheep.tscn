@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=3 uid="uid://bwc1mkg2dqkd6"]
+
+[ext_resource type="Texture2D" uid="uid://dvfhvs4luky4b" path="res://assets/Tiny Swords (Update 010)/Resources/Sheep/HappySheep_All.png" id="1_8ephn"]
+[ext_resource type="Script" path="res://scripts/enemys/sheep.gd" id="1_wledc"]
+[ext_resource type="Shader" path="res://themes/shaiders/hit_shaider.gdshader" id="2_jdj8s"]
+[ext_resource type="PackedScene" uid="uid://1xbt7m74ccpw" path="res://scenes/recurces/spawn_objects/meat_spawn.tscn" id="2_t7nn6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bt6tk"]
+resource_local_to_scene = true
+shader = ExtResource("2_jdj8s")
+shader_parameter/active = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32tkw"]
+size = Vector2(30, 35)
+
+[sub_resource type="Animation" id="Animation_53bim"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ysu0i"]
+resource_name = "idle"
+length = 0.85
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_jjded"]
+resource_name = "walk"
+length = 0.55
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xydip"]
+_data = {
+"RESET": SubResource("Animation_53bim"),
+"idle": SubResource("Animation_ysu0i"),
+"walk": SubResource("Animation_jjded")
+}
+
+[node name="Sheep" type="CharacterBody2D" node_paths=PackedStringArray("anim", "spr") groups=["enemy"]]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_wledc")
+anim = NodePath("AnimationPlayer")
+spr = NodePath("Sprite2D")
+meat_scene = ExtResource("2_t7nn6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_bt6tk")
+position = Vector2(3, 3)
+texture = ExtResource("1_8ephn")
+hframes = 8
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.50001, 3)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_32tkw")
+one_way_collision_margin = 11.8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xydip")
+}
