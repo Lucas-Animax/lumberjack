@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://kfkse3gqv0gc"]
+
+[ext_resource type="Script" path="res://scripts/resource/pass_run.gd" id="1_vutxe"]
+
+[node name="pass_run" type="Area2D"]
+script = ExtResource("1_vutxe")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

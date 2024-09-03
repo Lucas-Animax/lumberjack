@@ -26,8 +26,8 @@ func moving():
 	)
 	var timer_move = randi_range(2,3)
 	if direction != Vector2.ZERO:
-		velocity.x = lerp(velocity.x,direction.x * speed,0.6)
-		velocity.y = lerp(velocity.y,direction.y * speed,0.6)
+		velocity.x = lerp(velocity.x,direction.x * speed,0.8)
+		velocity.y = lerp(velocity.y,direction.y * speed,0.8)
 	else:
 		velocity.x = move_toward(velocity.x,0,speed)
 		velocity.y = move_toward(velocity.y,0,speed)

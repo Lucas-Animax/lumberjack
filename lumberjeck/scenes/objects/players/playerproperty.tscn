@@ -7,6 +7,7 @@
 [node name="PlayerProperty" type="CharacterBody2D" node_paths=PackedStringArray("spr") groups=["player"]]
 y_sort_enabled = true
 collision_mask = 15
+motion_mode = 1
 script = ExtResource("1_nn1jq")
 spr = NodePath("sprit")
 
