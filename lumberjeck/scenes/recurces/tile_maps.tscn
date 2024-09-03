@@ -1,20 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://dal53wpusx27g"]
+[gd_scene load_steps=5 format=3 uid="uid://dal53wpusx27g"]
 
 [ext_resource type="TileSet" uid="uid://s4n3lnwx458s" path="res://themes/TileMap_themes/Walter_TileMap.tres" id="1_38u30"]
 [ext_resource type="TileSet" uid="uid://vi4c8p2ohl8g" path="res://themes/TileMap_themes/Foams_TileMap.tres" id="2_t2jca"]
 [ext_resource type="TileSet" uid="uid://ces8cmenrkh3u" path="res://themes/TileMap_themes/Flat_TileMap.tres" id="3_kpuvq"]
+[ext_resource type="TileSet" uid="uid://divxwc5bm5w77" path="res://themes/TileMap_themes/objects.tres" id="4_3de5a"]
 
 [node name="TileMaps" type="Node2D"]
 
 [node name="TileMap | Water" type="Node2D" parent="."]
 
 [node name="water" type="TileMapLayer" parent="TileMap | Water"]
+z_index = -2
 tile_set = ExtResource("1_38u30")
 
 [node name="foams_and_rocks" type="TileMapLayer" parent="TileMap | Water"]
+z_index = -2
 tile_set = ExtResource("2_t2jca")
 
 [node name="TileMap | Terren" type="Node2D" parent="."]
 
 [node name="flat" type="TileMapLayer" parent="TileMap | Terren"]
+z_index = -2
 tile_set = ExtResource("3_kpuvq")
+
+[node name="TileMap | Objects" type="Node2D" parent="."]
+
+[node name="objects" type="TileMapLayer" parent="TileMap | Objects"]
+z_index = -1
+tile_set = ExtResource("4_3de5a")

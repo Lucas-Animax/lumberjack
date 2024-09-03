@@ -72,6 +72,7 @@ _data = {
 [node name="Sheep" type="CharacterBody2D" node_paths=PackedStringArray("anim", "spr") groups=["enemy"]]
 collision_layer = 2
 collision_mask = 7
+motion_mode = 1
 script = ExtResource("1_wledc")
 anim = NodePath("AnimationPlayer")
 spr = NodePath("Sprite2D")
